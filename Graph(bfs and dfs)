@@ -1,0 +1,56 @@
+# rohini-mishra
+# Using bfs
+graph = {
+  1 : [6,2],
+  2 :[4,3],
+  3:[5],
+  4 : [],
+  5 :[5],
+  6:[]
+}
+
+visited = [] #  visited nodes.
+queue = []     # queue
+
+def bfs(visited, graph):
+    print("Enter the starting node")
+    node = int(input())
+    visited.append(node)
+    queue.append(node)
+    while queue:
+        s = queue.pop(0)
+        print (s, end  = " ")
+        for neighbour in graph[s]:
+          if neighbour not in visited:
+            visited.append(neighbour)
+            queue.append(neighbour)
+
+bfs(visited,graph)
+
+#Using dfs
+graph = {
+   1 : [4,3],
+   2: [2,6],
+    3:[5,7],
+    4: [ ],
+    5 : [ ],
+    6 : [ ],
+    7 : [ ]
+}
+print(graph)
+visited = []
+def DFS(visited,graph,n):  # print("Enter the starting node")
+   if n not in visited:
+       visited.append(n)
+   for neighbour in graph[n]:
+
+        print("n= ",n)
+        if neighbour not in visited:
+               visited.append(neighbour)
+               print(neighbour)
+               print(visited)
+               DFS(visited,graph,neighbour)
+
+
+DFS(visited,graph,1)
+print(visited)
